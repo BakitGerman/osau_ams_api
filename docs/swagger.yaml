@@ -1,0 +1,5260 @@
+basePath: /api
+definitions:
+  domain.Attendance:
+    properties:
+      attendance_id:
+        type: integer
+      created:
+        type: string
+      late_arrival:
+        type: boolean
+      presence:
+        type: boolean
+      reason:
+        type: string
+      respectfulness:
+        type: boolean
+      schedule_id:
+        type: integer
+      student_id:
+        type: integer
+    type: object
+  domain.Classroom:
+    properties:
+      classroom_id:
+        type: integer
+      classroom_name:
+        type: string
+    type: object
+  domain.Departament:
+    properties:
+      departament_email:
+        type: string
+      departament_id:
+        type: integer
+      departament_name:
+        type: string
+      faculty_id:
+        type: integer
+      head_first_name:
+        type: string
+      head_last_name:
+        type: string
+      head_middle_name:
+        type: string
+    type: object
+  domain.DepartamentInfo:
+    properties:
+      departament:
+        $ref: '#/definitions/domain.Departament'
+      departament_sub:
+        $ref: '#/definitions/domain.DepartamentSub'
+    type: object
+  domain.DepartamentSub:
+    properties:
+      faculty_name:
+        type: string
+    type: object
+  domain.Discipline:
+    properties:
+      departament_id:
+        type: integer
+      discipline_id:
+        type: integer
+      discipline_name:
+        type: string
+    type: object
+  domain.DisciplineInfo:
+    properties:
+      discipline:
+        $ref: '#/definitions/domain.Discipline'
+      discipline_sub:
+        $ref: '#/definitions/domain.DisciplineSub'
+    type: object
+  domain.DisciplineSub:
+    properties:
+      departament_name:
+        type: string
+    type: object
+  domain.DisciplineType:
+    properties:
+      discipline_type_id:
+        type: integer
+      discipline_type_name:
+        type: string
+    type: object
+  domain.EducationLevel:
+    properties:
+      education_level_id:
+        type: integer
+      education_level_name:
+        type: string
+    type: object
+  domain.EducationType:
+    properties:
+      education_type_id:
+        type: integer
+      education_type_name:
+        type: string
+    type: object
+  domain.Faculty:
+    properties:
+      faculty_email:
+        type: string
+      faculty_id:
+        type: integer
+      faculty_name:
+        type: string
+      head_first_name:
+        type: string
+      head_last_name:
+        type: string
+      head_middle_name:
+        type: string
+      university_id:
+        type: integer
+    type: object
+  domain.Group:
+    properties:
+      group_id:
+        type: string
+      profile_id:
+        type: integer
+    type: object
+  domain.GroupInfo:
+    properties:
+      group:
+        $ref: '#/definitions/domain.Group'
+      group_sub:
+        $ref: '#/definitions/domain.GroupSub'
+    type: object
+  domain.GroupSub:
+    properties:
+      profile_name:
+        type: string
+    type: object
+  domain.Headman:
+    properties:
+      group_id:
+        type: string
+      headman_id:
+        type: integer
+      student_id:
+        type: integer
+    type: object
+  domain.HeadmanInfo:
+    properties:
+      headman:
+        $ref: '#/definitions/domain.Headman'
+      headman_sub:
+        $ref: '#/definitions/domain.HeadmanSub'
+    type: object
+  domain.HeadmanSub:
+    properties:
+      group_name:
+        type: string
+      student_full_name:
+        $ref: '#/definitions/domain.StudentFullName'
+    type: object
+  domain.Profile:
+    properties:
+      education_type_id:
+        type: integer
+      profile_id:
+        type: integer
+      profile_name:
+        type: string
+      specialty_code:
+        type: string
+    type: object
+  domain.ProfileInfo:
+    properties:
+      profile:
+        $ref: '#/definitions/domain.Profile'
+      profile_sub:
+        $ref: '#/definitions/domain.ProfileSub'
+    type: object
+  domain.ProfileSub:
+    properties:
+      education_type_name:
+        type: string
+    type: object
+  domain.Schedule:
+    properties:
+      begin_studies:
+        type: string
+      classroom_id:
+        type: integer
+      day_of_week:
+        type: string
+      discipline_id:
+        type: integer
+      discipline_type_id:
+        type: integer
+      group_id:
+        type: string
+      is_actual:
+        type: boolean
+      schedule_id:
+        type: integer
+      semester:
+        type: integer
+      start_time:
+        type: string
+      teacher_id:
+        type: integer
+      week_type:
+        type: string
+    type: object
+  domain.Specialty:
+    properties:
+      departament_id:
+        type: integer
+      education_level_id:
+        type: integer
+      specialty_code:
+        type: string
+      specialty_name:
+        type: string
+    type: object
+  domain.SpecialtyInfo:
+    properties:
+      specialty:
+        $ref: '#/definitions/domain.Specialty'
+      specialty_sub:
+        $ref: '#/definitions/domain.SpecialtySub'
+    type: object
+  domain.SpecialtySub:
+    properties:
+      departament_name:
+        type: string
+      education_level_name:
+        type: string
+    type: object
+  domain.Student:
+    properties:
+      first_name:
+        type: string
+      group_id:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      student_id:
+        type: integer
+    type: object
+  domain.StudentFullName:
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+    type: object
+  domain.Teacher:
+    properties:
+      departament_id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      teacher_email:
+        type: string
+      teacher_id:
+        type: integer
+    type: object
+  domain.TeacherFullName:
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+    type: object
+  domain.TeacherInfo:
+    properties:
+      teacher:
+        $ref: '#/definitions/domain.Teacher'
+      teacher_sub:
+        $ref: '#/definitions/domain.TeacherSub'
+    type: object
+  domain.TeacherSub:
+    properties:
+      departament_name:
+        type: string
+    type: object
+  domain.University:
+    properties:
+      head_first_name:
+        type: string
+      head_last_name:
+        type: string
+      head_middle_name:
+        type: string
+      university_email:
+        type: string
+      university_id:
+        type: integer
+      university_name:
+        type: string
+    type: object
+  domain.User:
+    properties:
+      headman_id:
+        type: integer
+      student_id:
+        type: integer
+      teacher_id:
+        type: integer
+      user_id:
+        type: string
+      user_role:
+        type: string
+      username:
+        type: string
+    type: object
+  domain.UserInfo:
+    properties:
+      user:
+        $ref: '#/definitions/domain.User'
+      user_sub:
+        $ref: '#/definitions/domain.UserSub'
+    type: object
+  domain.UserSub:
+    properties:
+      group_id:
+        type: string
+      student_full_name:
+        $ref: '#/definitions/domain.StudentFullName'
+      teacher_full_name:
+        $ref: '#/definitions/domain.TeacherFullName'
+    type: object
+  handler.CreateAttendanceRequest:
+    properties:
+      created:
+        type: string
+      late_arrival:
+        type: boolean
+      presence:
+        type: boolean
+      reason:
+        type: string
+      respectfulness:
+        type: boolean
+      schedule_id:
+        type: integer
+      student_id:
+        type: integer
+    required:
+    - created
+    - schedule_id
+    - student_id
+    type: object
+  handler.CreateClassroomRequest:
+    properties:
+      classroom_name:
+        type: string
+    required:
+    - classroom_name
+    type: object
+  handler.CreateDepartamentRequest:
+    properties:
+      departament_email:
+        type: string
+      departament_name:
+        type: string
+      faculty_id:
+        type: integer
+      head_first_name:
+        type: string
+      head_last_name:
+        type: string
+      head_middle_name:
+        type: string
+    required:
+    - departament_email
+    - departament_name
+    - faculty_id
+    - head_first_name
+    - head_last_name
+    - head_middle_name
+    type: object
+  handler.CreateDisciplineRequest:
+    properties:
+      departament_id:
+        type: integer
+      discipline_name:
+        type: string
+    required:
+    - departament_id
+    - discipline_name
+    type: object
+  handler.CreateDisciplineTypeRequest:
+    properties:
+      discipline_type_name:
+        type: string
+    required:
+    - discipline_type_name
+    type: object
+  handler.CreateEducationLevelRequest:
+    properties:
+      education_level_name:
+        type: string
+    required:
+    - education_level_name
+    type: object
+  handler.CreateEducationTypeRequest:
+    properties:
+      education_type_name:
+        type: string
+    required:
+    - education_type_name
+    type: object
+  handler.CreateFacultyRequest:
+    properties:
+      faculty_email:
+        maxLength: 60
+        minLength: 8
+        type: string
+      faculty_name:
+        maxLength: 100
+        minLength: 2
+        type: string
+      head_first_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_last_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_middle_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      university_id:
+        minimum: 1
+        type: integer
+    required:
+    - faculty_email
+    - faculty_name
+    - head_first_name
+    - head_last_name
+    - head_middle_name
+    - university_id
+    type: object
+  handler.CreateGroupRequest:
+    properties:
+      group_id:
+        type: string
+      profile_id:
+        type: integer
+    required:
+    - group_id
+    - profile_id
+    type: object
+  handler.CreateHeadmanRequest:
+    properties:
+      group_id:
+        type: string
+      student_id:
+        type: integer
+    required:
+    - group_id
+    - student_id
+    type: object
+  handler.CreateProfileRequest:
+    properties:
+      education_type_id:
+        type: integer
+      profile_name:
+        type: string
+      specialty_code:
+        type: string
+    required:
+    - education_type_id
+    - profile_name
+    - specialty_code
+    type: object
+  handler.CreateScheduleRequest:
+    properties:
+      begin_studies:
+        type: string
+      classroom_id:
+        type: integer
+      day_of_week:
+        enum:
+        - Понедельник
+        - Вторник
+        - Среда
+        - Четверг
+        - Пятница
+        - Суббота
+        - Воскресенье
+        type: string
+      discipline_id:
+        type: integer
+      discipline_type_id:
+        type: integer
+      group_id:
+        type: string
+      is_actual:
+        type: boolean
+      semester:
+        type: integer
+      start_time:
+        type: string
+      teacher_id:
+        type: integer
+      week_type:
+        enum:
+        - Верхняя
+        - Нижняя
+        type: string
+    required:
+    - begin_studies
+    - classroom_id
+    - day_of_week
+    - discipline_id
+    - discipline_type_id
+    - group_id
+    - is_actual
+    - semester
+    - start_time
+    - teacher_id
+    - week_type
+    type: object
+  handler.CreateSpecialtyRequest:
+    properties:
+      departament_id:
+        type: integer
+      education_level_id:
+        type: integer
+      specialty_code:
+        type: string
+      specialty_name:
+        type: string
+    required:
+    - departament_id
+    - education_level_id
+    - specialty_code
+    - specialty_name
+    type: object
+  handler.CreateStudentRequest:
+    properties:
+      first_name:
+        type: string
+      group_id:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+    required:
+    - first_name
+    - group_id
+    - last_name
+    - middle_name
+    type: object
+  handler.CreateTeacherRequest:
+    properties:
+      departament_id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      teacher_email:
+        type: string
+    required:
+    - departament_id
+    - first_name
+    - last_name
+    - middle_name
+    - teacher_email
+    type: object
+  handler.CreateUniversityRequest:
+    properties:
+      head_first_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_last_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_middle_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      university_email:
+        maxLength: 60
+        minLength: 8
+        type: string
+      university_name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - head_first_name
+    - head_last_name
+    - head_middle_name
+    - university_email
+    - university_name
+    type: object
+  handler.CreateUserRequest:
+    properties:
+      headman_id:
+        minimum: 1
+        type: integer
+      password:
+        maxLength: 40
+        minLength: 8
+        type: string
+      role:
+        enum:
+        - Студент
+        - Староста
+        - Админ
+        - Преподаватель
+        type: string
+      student_id:
+        minimum: 1
+        type: integer
+      teacher_id:
+        minimum: 1
+        type: integer
+      username:
+        maxLength: 40
+        minLength: 8
+        type: string
+    required:
+    - password
+    - role
+    - username
+    type: object
+  handler.ErrorResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  handler.PatchAttendanceRequest:
+    properties:
+      attendance_id:
+        type: integer
+      created:
+        type: string
+      late_arrival:
+        type: boolean
+      presence:
+        type: boolean
+      reason:
+        type: string
+      respectfulness:
+        type: boolean
+      schedule_id:
+        type: integer
+      student_id:
+        type: integer
+    required:
+    - attendance_id
+    type: object
+  handler.PatchClassroomRequest:
+    properties:
+      classroom_id:
+        type: integer
+      classroom_name:
+        type: string
+    required:
+    - classroom_id
+    type: object
+  handler.PatchDepartamentRequest:
+    properties:
+      departament_email:
+        type: string
+      departament_id:
+        type: integer
+      departament_name:
+        type: string
+      faculty_id:
+        type: integer
+      head_first_name:
+        type: string
+      head_last_name:
+        type: string
+      head_middle_name:
+        type: string
+    required:
+    - departament_id
+    type: object
+  handler.PatchDisciplineRequest:
+    properties:
+      departament_id:
+        type: integer
+      discipline_id:
+        type: integer
+      discipline_name:
+        type: string
+    required:
+    - discipline_id
+    type: object
+  handler.PatchDisciplineTypeRequest:
+    properties:
+      discipline_type_id:
+        type: integer
+      discipline_type_name:
+        type: string
+    required:
+    - discipline_type_id
+    type: object
+  handler.PatchEducationLevelRequest:
+    properties:
+      education_level_id:
+        type: integer
+      education_level_name:
+        type: string
+    required:
+    - education_level_id
+    type: object
+  handler.PatchEducationTypeRequest:
+    properties:
+      education_type_id:
+        type: integer
+      education_type_name:
+        type: string
+    required:
+    - education_type_id
+    type: object
+  handler.PatchFacultyRequest:
+    properties:
+      faculty_email:
+        maxLength: 60
+        minLength: 8
+        type: string
+      faculty_id:
+        minimum: 1
+        type: integer
+      faculty_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_first_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_last_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_middle_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      university_id:
+        minimum: 1
+        type: integer
+    required:
+    - faculty_id
+    - faculty_name
+    type: object
+  handler.PatchGroupRequest:
+    properties:
+      group_id:
+        type: string
+      profile_id:
+        type: integer
+    required:
+    - group_id
+    type: object
+  handler.PatchHeadmanRequest:
+    properties:
+      group_id:
+        type: string
+      headman_id:
+        type: integer
+      student_id:
+        type: integer
+    required:
+    - headman_id
+    type: object
+  handler.PatchProfileRequest:
+    properties:
+      education_type_id:
+        type: integer
+      profile_id:
+        type: integer
+      profile_name:
+        type: string
+      specialty_code:
+        type: string
+    required:
+    - profile_id
+    type: object
+  handler.PatchScheduleRequest:
+    properties:
+      begin_studies:
+        type: string
+      classroom_id:
+        type: integer
+      day_of_week:
+        enum:
+        - Понедельник
+        - Вторник
+        - Среда
+        - Четверг
+        - Пятница
+        - Суббота
+        - Воскресенье
+        type: string
+      discipline_id:
+        type: integer
+      discipline_type_id:
+        type: integer
+      group_id:
+        type: string
+      is_actual:
+        type: boolean
+      schedule_id:
+        type: integer
+      semester:
+        type: integer
+      start_time:
+        type: string
+      teacher_id:
+        type: integer
+      week_type:
+        enum:
+        - Верхняя
+        - Нижняя
+        type: string
+    required:
+    - schedule_id
+    type: object
+  handler.PatchSpecialtyRequest:
+    properties:
+      departament_id:
+        type: integer
+      education_level_id:
+        type: integer
+      specialty_code:
+        type: string
+      specialty_name:
+        type: string
+    required:
+    - education_level_id
+    - specialty_code
+    type: object
+  handler.PatchStudentRequest:
+    properties:
+      first_name:
+        type: string
+      group_id:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      student_id:
+        type: integer
+    required:
+    - student_id
+    type: object
+  handler.PatchTeacherRequest:
+    properties:
+      departament_id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      teacher_email:
+        type: string
+      teacher_id:
+        type: integer
+    required:
+    - teacher_id
+    type: object
+  handler.PatchUniversityRequest:
+    properties:
+      head_first_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_last_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_middle_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      university_email:
+        maxLength: 60
+        minLength: 8
+        type: string
+      university_id:
+        type: integer
+      university_name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - university_id
+    type: object
+  handler.PatchUserRequest:
+    properties:
+      headman_id:
+        minimum: 1
+        type: integer
+      password:
+        maxLength: 40
+        minLength: 8
+        type: string
+      role:
+        enum:
+        - Студент
+        - Староста
+        - Админ
+        - Преподаватель
+        type: string
+      student_id:
+        minimum: 1
+        type: integer
+      teacher_id:
+        minimum: 1
+        type: integer
+      user_id:
+        type: string
+      username:
+        maxLength: 40
+        minLength: 8
+        type: string
+    required:
+    - user_id
+    type: object
+  handler.PutAttendanceRequest:
+    properties:
+      attendance_id:
+        type: integer
+      late_arrival:
+        type: boolean
+      presence:
+        type: boolean
+      reason:
+        type: string
+      respectfulness:
+        type: boolean
+      schedule_id:
+        type: integer
+      student_id:
+        type: integer
+    required:
+    - attendance_id
+    - schedule_id
+    - student_id
+    type: object
+  handler.PutAttendancesRequest:
+    properties:
+      attendances:
+        items:
+          $ref: '#/definitions/handler.PutAttendanceRequest'
+        type: array
+    required:
+    - attendances
+    type: object
+  handler.PutClassroomRequest:
+    properties:
+      classroom_id:
+        type: integer
+      classroom_name:
+        type: string
+    required:
+    - classroom_id
+    - classroom_name
+    type: object
+  handler.PutDepartamentRequest:
+    properties:
+      departament_email:
+        type: string
+      departament_id:
+        type: integer
+      departament_name:
+        type: string
+      faculty_id:
+        type: integer
+      head_first_name:
+        type: string
+      head_last_name:
+        type: string
+      head_middle_name:
+        type: string
+    required:
+    - departament_email
+    - departament_id
+    - departament_name
+    - faculty_id
+    - head_first_name
+    - head_last_name
+    - head_middle_name
+    type: object
+  handler.PutDisciplineRequest:
+    properties:
+      departament_id:
+        type: integer
+      discipline_id:
+        type: integer
+      discipline_name:
+        type: string
+    required:
+    - departament_id
+    - discipline_id
+    - discipline_name
+    type: object
+  handler.PutDisciplineTypeRequest:
+    properties:
+      discipline_type_id:
+        type: integer
+      discipline_type_name:
+        type: string
+    required:
+    - discipline_type_id
+    - discipline_type_name
+    type: object
+  handler.PutEducationLevelRequest:
+    properties:
+      education_level_id:
+        type: integer
+      education_level_name:
+        type: string
+    required:
+    - education_level_id
+    - education_level_name
+    type: object
+  handler.PutEducationTypeRequest:
+    properties:
+      education_type_id:
+        type: integer
+      education_type_name:
+        type: string
+    required:
+    - education_type_id
+    - education_type_name
+    type: object
+  handler.PutFacultyRequest:
+    properties:
+      faculty_email:
+        maxLength: 60
+        minLength: 8
+        type: string
+      faculty_id:
+        minimum: 1
+        type: integer
+      faculty_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_first_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_last_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_middle_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      university_id:
+        minimum: 1
+        type: integer
+    required:
+    - faculty_email
+    - faculty_id
+    - faculty_name
+    - head_first_name
+    - head_last_name
+    - head_middle_name
+    - university_id
+    type: object
+  handler.PutGroupRequest:
+    properties:
+      group_id:
+        type: string
+      profile_id:
+        type: integer
+    required:
+    - group_id
+    - profile_id
+    type: object
+  handler.PutHeadmanRequest:
+    properties:
+      group_id:
+        type: string
+      headman_id:
+        type: integer
+      student_id:
+        type: integer
+    required:
+    - group_id
+    - headman_id
+    - student_id
+    type: object
+  handler.PutProfileRequest:
+    properties:
+      education_type_id:
+        type: integer
+      profile_id:
+        type: integer
+      profile_name:
+        type: string
+      specialty_code:
+        type: string
+    required:
+    - education_type_id
+    - profile_id
+    - profile_name
+    - specialty_code
+    type: object
+  handler.PutScheduleRequest:
+    properties:
+      begin_studies:
+        type: string
+      classroom_id:
+        type: integer
+      day_of_week:
+        enum:
+        - Понедельник
+        - Вторник
+        - Среда
+        - Четверг
+        - Пятница
+        - Суббота
+        - Воскресенье
+        type: string
+      discipline_id:
+        type: integer
+      discipline_type_id:
+        type: integer
+      group_id:
+        type: string
+      is_actual:
+        type: boolean
+      schedule_id:
+        type: integer
+      semester:
+        type: integer
+      start_time:
+        type: string
+      teacher_id:
+        type: integer
+      week_type:
+        enum:
+        - Верхняя
+        - Нижняя
+        type: string
+    required:
+    - begin_studies
+    - classroom_id
+    - day_of_week
+    - discipline_id
+    - discipline_type_id
+    - group_id
+    - is_actual
+    - schedule_id
+    - semester
+    - start_time
+    - teacher_id
+    - week_type
+    type: object
+  handler.PutSpecialtyRequest:
+    properties:
+      departament_id:
+        type: integer
+      education_level_id:
+        type: integer
+      specialty_code:
+        type: string
+      specialty_name:
+        type: string
+    required:
+    - departament_id
+    - education_level_id
+    - specialty_code
+    - specialty_name
+    type: object
+  handler.PutStudentRequest:
+    properties:
+      first_name:
+        type: string
+      group_id:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      student_id:
+        type: integer
+    required:
+    - first_name
+    - group_id
+    - last_name
+    - middle_name
+    - student_id
+    type: object
+  handler.PutTeacherRequest:
+    properties:
+      departament_id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      teacher_email:
+        type: string
+      teacher_id:
+        type: integer
+    required:
+    - departament_id
+    - first_name
+    - last_name
+    - middle_name
+    - teacher_email
+    - teacher_id
+    type: object
+  handler.PutUniversityRequest:
+    properties:
+      head_first_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_last_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      head_middle_name:
+        maxLength: 60
+        minLength: 2
+        type: string
+      university_email:
+        maxLength: 60
+        minLength: 8
+        type: string
+      university_id:
+        type: integer
+      university_name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - head_first_name
+    - head_last_name
+    - head_middle_name
+    - university_email
+    - university_id
+    - university_name
+    type: object
+  handler.PutUserRequest:
+    properties:
+      headman_id:
+        minimum: 1
+        type: integer
+      password:
+        maxLength: 40
+        minLength: 8
+        type: string
+      role:
+        enum:
+        - Студент
+        - Староста
+        - Админ
+        - Преподаватель
+        type: string
+      student_id:
+        minimum: 1
+        type: integer
+      teacher_id:
+        minimum: 1
+        type: integer
+      user_id:
+        type: string
+      username:
+        maxLength: 40
+        minLength: 8
+        type: string
+    required:
+    - password
+    - role
+    - user_id
+    - username
+    type: object
+  handler.SignInUserRequest:
+    properties:
+      password:
+        maxLength: 40
+        minLength: 8
+        type: string
+      username:
+        maxLength: 40
+        minLength: 8
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  handler.SuccessResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  service.Tokens:
+    properties:
+      accessToken:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact:
+    email: bakit.german.work@icloud.com
+    name: API Support
+  description: This is the API for Osau AMS.
+  title: Osau AMS API
+  version: "1.0"
+paths:
+  /admin/user:
+    get:
+      description: Get a list of all users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.UserInfo'
+            type: array
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all users
+      tags:
+      - Users
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing user
+      parameters:
+      - description: User info
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Partially update a user
+      tags:
+      - Users
+    post:
+      consumes:
+      - application/json
+      description: Create a new user
+      parameters:
+      - description: User info
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a user
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: Update an existing user
+      parameters:
+      - description: User info
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a user
+      tags:
+      - Users
+  /admin/user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a user
+      tags:
+      - Users
+    get:
+      consumes:
+      - application/json
+      description: Get a user by its ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.UserInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a user by ID
+      tags:
+      - Users
+  /admin/user/headman/{headman_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a user by headman ID
+      parameters:
+      - description: Headman ID
+        in: path
+        name: headman_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.UserInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a user by headman ID
+      tags:
+      - Users
+  /admin/user/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a user by its name
+      parameters:
+      - description: User name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.UserInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a user by name
+      tags:
+      - Users
+  /admin/user/role/{role}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all users by role
+      parameters:
+      - description: User role
+        in: path
+        name: role
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.UserInfo'
+            type: array
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all users by role
+      tags:
+      - Users
+  /admin/user/student/{student_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a user by student ID
+      parameters:
+      - description: Student ID
+        in: path
+        name: student_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.UserInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a user by student ID
+      tags:
+      - Users
+  /admin/user/teacher/{teacher_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a user by teacher ID
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: teacher_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.UserInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a user by teacher ID
+      tags:
+      - Users
+  /admins/universities:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all universities
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.University'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all universities
+      tags:
+      - Universities
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing university
+      parameters:
+      - description: University info
+        in: body
+        name: university
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchUniversityRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Partially update a university
+      tags:
+      - Universities
+    post:
+      consumes:
+      - application/json
+      description: Create a new university
+      parameters:
+      - description: University info
+        in: body
+        name: university
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateUniversityRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a university
+      tags:
+      - Universities
+    put:
+      consumes:
+      - application/json
+      description: Update an existing university
+      parameters:
+      - description: University info
+        in: body
+        name: university
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutUniversityRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a university
+      tags:
+      - Universities
+  /admins/universities/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing university
+      parameters:
+      - description: University ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a university
+      tags:
+      - Universities
+    get:
+      consumes:
+      - application/json
+      description: Get a university by its ID
+      parameters:
+      - description: University ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.University'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a university by ID
+      tags:
+      - Universities
+  /admins/universities/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a university by its name
+      parameters:
+      - description: University Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.University'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a university by name
+      tags:
+      - Universities
+  /attendances:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all attendances
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Attendance'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all attendances
+      tags:
+      - Attendance
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing attendance
+      parameters:
+      - description: Attendance info
+        in: body
+        name: attendance
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchAttendanceRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update an attendance
+      tags:
+      - Attendance
+    post:
+      consumes:
+      - application/json
+      description: Create a new attendance
+      parameters:
+      - description: Attendance info
+        in: body
+        name: attendance
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateAttendanceRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create an attendance
+      tags:
+      - Attendance
+    put:
+      consumes:
+      - application/json
+      description: Update multiple existing attendances
+      parameters:
+      - description: Attendances info
+        in: body
+        name: attendance
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutAttendancesRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update multiple attendances
+      tags:
+      - Attendance
+  /attendances/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing attendance
+      parameters:
+      - description: Attendance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete an attendance
+      tags:
+      - Attendance
+    get:
+      consumes:
+      - application/json
+      description: Get an attendance by its ID
+      parameters:
+      - description: Attendance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Attendance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get an attendance by ID
+      tags:
+      - Attendance
+  /attendances/student/{student_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get attendances by student ID
+      parameters:
+      - description: Student ID
+        in: path
+        name: student_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Attendance'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get attendances by student ID
+      tags:
+      - Attendance
+  /auth/signin:
+    post:
+      consumes:
+      - application/json
+      description: Sign in a user
+      parameters:
+      - description: User sign-in info
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/handler.SignInUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.Tokens'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Sign in a user
+      tags:
+      - Users
+  /classrooms:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all classrooms
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Classroom'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all classrooms
+      tags:
+      - Classrooms
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing classroom
+      parameters:
+      - description: Classroom info
+        in: body
+        name: classroom
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchClassroomRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a classroom
+      tags:
+      - Classrooms
+    post:
+      consumes:
+      - application/json
+      description: Create a new classroom
+      parameters:
+      - description: Classroom info
+        in: body
+        name: classroom
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateClassroomRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a classroom
+      tags:
+      - Classrooms
+    put:
+      consumes:
+      - application/json
+      description: Update an existing classroom
+      parameters:
+      - description: Classroom info
+        in: body
+        name: classroom
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutClassroomRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a classroom
+      tags:
+      - Classrooms
+  /classrooms/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing classroom
+      parameters:
+      - description: Classroom ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a classroom
+      tags:
+      - Classrooms
+    get:
+      consumes:
+      - application/json
+      description: Get a classroom by its ID
+      parameters:
+      - description: Classroom ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Classroom'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a classroom by ID
+      tags:
+      - Classrooms
+  /departaments:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all departaments
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.DepartamentInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all departaments
+      tags:
+      - Departaments
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing departament
+      parameters:
+      - description: Departament info
+        in: body
+        name: departament
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchDepartamentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a departament
+      tags:
+      - Departaments
+    post:
+      consumes:
+      - application/json
+      description: Create a new departament
+      parameters:
+      - description: Departament info
+        in: body
+        name: departament
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateDepartamentRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a departament
+      tags:
+      - Departaments
+    put:
+      consumes:
+      - application/json
+      description: Update an existing departament
+      parameters:
+      - description: Departament info
+        in: body
+        name: departament
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutDepartamentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a departament
+      tags:
+      - Departaments
+  /departaments/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing departament
+      parameters:
+      - description: Departament ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a departament
+      tags:
+      - Departaments
+    get:
+      consumes:
+      - application/json
+      description: Get a departament by its ID
+      parameters:
+      - description: Departament ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.DepartamentInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a departament by ID
+      tags:
+      - Departaments
+  /departaments/faculty/{faculty_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of departaments by faculty ID
+      parameters:
+      - description: Faculty ID
+        in: path
+        name: faculty_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.DepartamentInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get departaments by faculty ID
+      tags:
+      - Departaments
+  /departaments/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a departament by its name
+      parameters:
+      - description: Departament Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.DepartamentInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a departament by name
+      tags:
+      - Departaments
+  /discipline_types:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all discipline types
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.DisciplineType'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all discipline types
+      tags:
+      - DisciplineTypes
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing discipline type
+      parameters:
+      - description: Discipline type info
+        in: body
+        name: discipline_type
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchDisciplineTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a discipline type
+      tags:
+      - DisciplineTypes
+    post:
+      consumes:
+      - application/json
+      description: Create a new discipline type
+      parameters:
+      - description: Discipline type info
+        in: body
+        name: discipline_type
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateDisciplineTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a discipline type
+      tags:
+      - DisciplineTypes
+    put:
+      consumes:
+      - application/json
+      description: Update an existing discipline type
+      parameters:
+      - description: Discipline type info
+        in: body
+        name: discipline_type
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutDisciplineTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a discipline type
+      tags:
+      - DisciplineTypes
+  /discipline_types/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing discipline type
+      parameters:
+      - description: Discipline type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a discipline type
+      tags:
+      - DisciplineTypes
+    get:
+      consumes:
+      - application/json
+      description: Get a discipline type by its ID
+      parameters:
+      - description: Discipline type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.DisciplineType'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a discipline type by ID
+      tags:
+      - DisciplineTypes
+  /disciplines:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all disciplines
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.DisciplineInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all disciplines
+      tags:
+      - Disciplines
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing discipline
+      parameters:
+      - description: Discipline info
+        in: body
+        name: discipline
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchDisciplineRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a discipline
+      tags:
+      - Disciplines
+    post:
+      consumes:
+      - application/json
+      description: Create a new discipline
+      parameters:
+      - description: Discipline info
+        in: body
+        name: discipline
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateDisciplineRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a discipline
+      tags:
+      - Disciplines
+    put:
+      consumes:
+      - application/json
+      description: Update an existing discipline
+      parameters:
+      - description: Discipline info
+        in: body
+        name: discipline
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutDisciplineRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a discipline
+      tags:
+      - Disciplines
+  /disciplines/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing discipline
+      parameters:
+      - description: Discipline ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a discipline
+      tags:
+      - Disciplines
+    get:
+      consumes:
+      - application/json
+      description: Get a discipline by its ID
+      parameters:
+      - description: Discipline ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.DisciplineInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a discipline by ID
+      tags:
+      - Disciplines
+  /disciplines/departament/{departament_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of disciplines by departament ID
+      parameters:
+      - description: Departament ID
+        in: path
+        name: departament_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.DisciplineInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get disciplines by departament ID
+      tags:
+      - Disciplines
+  /disciplines/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a discipline by its name
+      parameters:
+      - description: Discipline Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.DisciplineInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a discipline by name
+      tags:
+      - Disciplines
+  /education_levels:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all education levels
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.EducationLevel'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all education levels
+      tags:
+      - EducationLevels
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing education level
+      parameters:
+      - description: Education level info
+        in: body
+        name: education_level
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchEducationLevelRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update an education level
+      tags:
+      - EducationLevels
+    post:
+      consumes:
+      - application/json
+      description: Create a new education level
+      parameters:
+      - description: Education level info
+        in: body
+        name: education_level
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateEducationLevelRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create an education level
+      tags:
+      - EducationLevels
+    put:
+      consumes:
+      - application/json
+      description: Update an existing education level
+      parameters:
+      - description: Education level info
+        in: body
+        name: education_level
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutEducationLevelRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update an education level
+      tags:
+      - EducationLevels
+  /education_levels/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing education level
+      parameters:
+      - description: Education level ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete an education level
+      tags:
+      - EducationLevels
+    get:
+      consumes:
+      - application/json
+      description: Get an education level by its ID
+      parameters:
+      - description: Education level ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.EducationLevel'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get an education level by ID
+      tags:
+      - EducationLevels
+  /education_types:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all education types
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.EducationType'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all education types
+      tags:
+      - EducationTypes
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing education type
+      parameters:
+      - description: Education type info
+        in: body
+        name: education_type
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchEducationTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update an education type
+      tags:
+      - EducationTypes
+    post:
+      consumes:
+      - application/json
+      description: Create a new education type
+      parameters:
+      - description: Education type info
+        in: body
+        name: education_type
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateEducationTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create an education type
+      tags:
+      - EducationTypes
+    put:
+      consumes:
+      - application/json
+      description: Update an existing education type
+      parameters:
+      - description: Education type info
+        in: body
+        name: education_type
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutEducationTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update an education type
+      tags:
+      - EducationTypes
+  /education_types/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing education type
+      parameters:
+      - description: Education type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete an education type
+      tags:
+      - EducationTypes
+    get:
+      consumes:
+      - application/json
+      description: Get an education type by its ID
+      parameters:
+      - description: Education type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.EducationType'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get an education type by ID
+      tags:
+      - EducationTypes
+  /education_types/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get an education type by its name
+      parameters:
+      - description: Education type Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.EducationType'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get an education type by name
+      tags:
+      - EducationTypes
+  /faculties:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all faculties
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Faculty'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all faculties
+      tags:
+      - Faculties
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing faculty
+      parameters:
+      - description: Faculty info
+        in: body
+        name: faculty
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchFacultyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Partially update a faculty
+      tags:
+      - Faculties
+    post:
+      consumes:
+      - application/json
+      description: Create a new faculty
+      parameters:
+      - description: Faculty info
+        in: body
+        name: faculty
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateFacultyRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a faculty
+      tags:
+      - Faculties
+    put:
+      consumes:
+      - application/json
+      description: Update an existing faculty
+      parameters:
+      - description: Faculty info
+        in: body
+        name: faculty
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutFacultyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a faculty
+      tags:
+      - Faculties
+  /faculties/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing faculty
+      parameters:
+      - description: Faculty ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a faculty
+      tags:
+      - Faculties
+  /faculties/id/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a faculty by its ID
+      parameters:
+      - description: Faculty ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Faculty'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a faculty by ID
+      tags:
+      - Faculties
+  /faculties/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a faculty by its ID
+      parameters:
+      - description: Faculty ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Faculty'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a faculty by ID
+      tags:
+      - Faculties
+  /faculties/university/id/{university_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of faculties by university ID
+      parameters:
+      - description: University ID
+        in: path
+        name: university_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Faculty'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get faculties by university ID
+      tags:
+      - Faculties
+  /groups:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all groups
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.GroupInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all groups
+      tags:
+      - Groups
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing group
+      parameters:
+      - description: Group info
+        in: body
+        name: group
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a group
+      tags:
+      - Groups
+    post:
+      consumes:
+      - application/json
+      description: Create a new group
+      parameters:
+      - description: Group info
+        in: body
+        name: group
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a group
+      tags:
+      - Groups
+    put:
+      consumes:
+      - application/json
+      description: Update an existing group
+      parameters:
+      - description: Group info
+        in: body
+        name: group
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a group
+      tags:
+      - Groups
+  /groups/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing group
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a group
+      tags:
+      - Groups
+    get:
+      consumes:
+      - application/json
+      description: Get a group by its ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.GroupInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a group by ID
+      tags:
+      - Groups
+  /groups/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a group by its name
+      parameters:
+      - description: Group Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.GroupInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a group by name
+      tags:
+      - Groups
+  /groups/profile/{profile_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of groups by profile ID
+      parameters:
+      - description: Profile ID
+        in: path
+        name: profile_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.GroupInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get groups by profile ID
+      tags:
+      - Groups
+  /headmen:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all headmen
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.HeadmanInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all headmen
+      tags:
+      - Headmen
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing headman
+      parameters:
+      - description: Headman info
+        in: body
+        name: headman
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchHeadmanRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a headman
+      tags:
+      - Headmen
+    post:
+      consumes:
+      - application/json
+      description: Create a new headman
+      parameters:
+      - description: Headman info
+        in: body
+        name: headman
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateHeadmanRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a headman
+      tags:
+      - Headmen
+    put:
+      consumes:
+      - application/json
+      description: Update an existing headman
+      parameters:
+      - description: Headman info
+        in: body
+        name: headman
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutHeadmanRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a headman
+      tags:
+      - Headmen
+  /headmen/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing headman
+      parameters:
+      - description: Headman ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a headman
+      tags:
+      - Headmen
+    get:
+      consumes:
+      - application/json
+      description: Get a headman by its ID
+      parameters:
+      - description: Headman ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.HeadmanInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a headman by ID
+      tags:
+      - Headmen
+  /profiles:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all profiles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.ProfileInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all profiles
+      tags:
+      - Profiles
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing profile
+      parameters:
+      - description: Profile info
+        in: body
+        name: profile
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a profile
+      tags:
+      - Profiles
+    post:
+      consumes:
+      - application/json
+      description: Create a new profile
+      parameters:
+      - description: Profile info
+        in: body
+        name: profile
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a profile
+      tags:
+      - Profiles
+    put:
+      consumes:
+      - application/json
+      description: Update an existing profile
+      parameters:
+      - description: Profile info
+        in: body
+        name: profile
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a profile
+      tags:
+      - Profiles
+  /profiles/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing profile
+      parameters:
+      - description: Profile ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a profile
+      tags:
+      - Profiles
+    get:
+      consumes:
+      - application/json
+      description: Get a profile by its ID
+      parameters:
+      - description: Profile ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.ProfileInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a profile by ID
+      tags:
+      - Profiles
+  /profiles/education_type/{education_type_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of profiles by education type ID
+      parameters:
+      - description: Education Type ID
+        in: path
+        name: education_type_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.ProfileInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get profiles by education type ID
+      tags:
+      - Profiles
+  /profiles/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a profile by its name
+      parameters:
+      - description: Profile Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.ProfileInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a profile by name
+      tags:
+      - Profiles
+  /profiles/specialty/{specialty_code}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of profiles by specialty code
+      parameters:
+      - description: Specialty Code
+        in: path
+        name: specialty_code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.ProfileInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get profiles by specialty code
+      tags:
+      - Profiles
+  /schedules:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all schedules
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all schedules
+      tags:
+      - Schedules
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing schedule
+      parameters:
+      - description: Schedule info
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchScheduleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a schedule
+      tags:
+      - Schedules
+    post:
+      consumes:
+      - application/json
+      description: Create a new schedule
+      parameters:
+      - description: Schedule info
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateScheduleRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a schedule
+      tags:
+      - Schedules
+    put:
+      consumes:
+      - application/json
+      description: Update an existing schedule
+      parameters:
+      - description: Schedule info
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutScheduleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a schedule
+      tags:
+      - Schedules
+  /schedules/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing schedule
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a schedule
+      tags:
+      - Schedules
+    get:
+      consumes:
+      - application/json
+      description: Get a schedule by its ID
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Schedule'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a schedule by ID
+      tags:
+      - Schedules
+  /schedules/group/{group_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get schedules by group ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: group_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get schedules by group ID
+      tags:
+      - Schedules
+  /schedules/group/{group_id}/actual:
+    get:
+      consumes:
+      - application/json
+      description: Get actual schedules by group ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: group_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get actual schedules by group ID
+      tags:
+      - Schedules
+  /schedules/group/{group_id}/week/{week_type}:
+    get:
+      consumes:
+      - application/json
+      description: Get schedules by group ID and week type
+      parameters:
+      - description: Group ID
+        in: path
+        name: group_id
+        required: true
+        type: string
+      - description: Week Type
+        in: path
+        name: week_type
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get schedules by group ID and week type
+      tags:
+      - Schedules
+  /schedules/group/{group_id}/week/{week_type}/day/{day_of_week}:
+    get:
+      consumes:
+      - application/json
+      description: Get schedules by group ID, week type, and day of the week
+      parameters:
+      - description: Group ID
+        in: path
+        name: group_id
+        required: true
+        type: string
+      - description: Week Type
+        in: path
+        name: week_type
+        required: true
+        type: string
+      - description: Day of the Week
+        in: path
+        name: day_of_week
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get schedules by group ID, week type, and day of the week
+      tags:
+      - Schedules
+  /schedules/teacher/{teacher_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get schedules by teacher ID
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: teacher_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get schedules by teacher ID
+      tags:
+      - Schedules
+  /schedules/teacher/{teacher_id}/actual:
+    get:
+      consumes:
+      - application/json
+      description: Get actual schedules by teacher ID
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: teacher_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get actual schedules by teacher ID
+      tags:
+      - Schedules
+  /schedules/teacher/{teacher_id}/week/{week_type}:
+    get:
+      consumes:
+      - application/json
+      description: Get schedules by teacher ID and week type
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: teacher_id
+        required: true
+        type: integer
+      - description: Week Type
+        in: path
+        name: week_type
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get schedules by teacher ID and week type
+      tags:
+      - Schedules
+  /schedules/teacher/{teacher_id}/week/{week_type}/day/{day_of_week}:
+    get:
+      consumes:
+      - application/json
+      description: Get schedules by teacher ID, week type, and day of the week
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: teacher_id
+        required: true
+        type: integer
+      - description: Week Type
+        in: path
+        name: week_type
+        required: true
+        type: string
+      - description: Day of the Week
+        in: path
+        name: day_of_week
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Schedule'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get schedules by teacher ID, week type, and day of the week
+      tags:
+      - Schedules
+  /specialties:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all specialties
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.SpecialtyInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all specialties
+      tags:
+      - Specialties
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing specialty
+      parameters:
+      - description: Specialty info
+        in: body
+        name: specialty
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchSpecialtyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a specialty
+      tags:
+      - Specialties
+    post:
+      consumes:
+      - application/json
+      description: Create a new specialty
+      parameters:
+      - description: Specialty info
+        in: body
+        name: specialty
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateSpecialtyRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a specialty
+      tags:
+      - Specialties
+    put:
+      consumes:
+      - application/json
+      description: Update an existing specialty
+      parameters:
+      - description: Specialty info
+        in: body
+        name: specialty
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutSpecialtyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a specialty
+      tags:
+      - Specialties
+  /specialties/{code}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing specialty
+      parameters:
+      - description: Specialty Code
+        in: path
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a specialty
+      tags:
+      - Specialties
+    get:
+      consumes:
+      - application/json
+      description: Get a specialty by its code
+      parameters:
+      - description: Specialty Code
+        in: path
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.SpecialtyInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a specialty by code
+      tags:
+      - Specialties
+  /specialties/departament/{departament_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of specialties by departament ID
+      parameters:
+      - description: Departament ID
+        in: path
+        name: departament_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.SpecialtyInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get specialties by departament ID
+      tags:
+      - Specialties
+  /specialties/name/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get a specialty by its name
+      parameters:
+      - description: Specialty Name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.SpecialtyInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a specialty by name
+      tags:
+      - Specialties
+  /students:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all students
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Student'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all students
+      tags:
+      - Students
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing student
+      parameters:
+      - description: Student info
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a student
+      tags:
+      - Students
+    post:
+      consumes:
+      - application/json
+      description: Create a new student
+      parameters:
+      - description: Student info
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a student
+      tags:
+      - Students
+    put:
+      consumes:
+      - application/json
+      description: Update an existing student
+      parameters:
+      - description: Student info
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutStudentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a student
+      tags:
+      - Students
+  /students/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing student
+      parameters:
+      - description: Student ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a student
+      tags:
+      - Students
+    get:
+      consumes:
+      - application/json
+      description: Get a student by its ID
+      parameters:
+      - description: Student ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Student'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a student by ID
+      tags:
+      - Students
+  /students/group/{group_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of students by group ID
+      parameters:
+      - description: Group ID
+        in: path
+        name: group_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Student'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get students by group ID
+      tags:
+      - Students
+  /teachers:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all teachers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.TeacherInfo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get all teachers
+      tags:
+      - Teachers
+    patch:
+      consumes:
+      - application/json
+      description: Partially update an existing teacher
+      parameters:
+      - description: Teacher info
+        in: body
+        name: teacher
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PatchTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Partially update a teacher
+      tags:
+      - Teachers
+    post:
+      consumes:
+      - application/json
+      description: Create a new teacher
+      parameters:
+      - description: Teacher info
+        in: body
+        name: teacher
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create a teacher
+      tags:
+      - Teachers
+    put:
+      consumes:
+      - application/json
+      description: Update an existing teacher
+      parameters:
+      - description: Teacher info
+        in: body
+        name: teacher
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PutTeacherRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update a teacher
+      tags:
+      - Teachers
+  /teachers/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing teacher
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete a teacher
+      tags:
+      - Teachers
+    get:
+      consumes:
+      - application/json
+      description: Get a teacher by its ID
+      parameters:
+      - description: Teacher ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.TeacherInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a teacher by ID
+      tags:
+      - Teachers
+  /teachers/departament/{departament_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of teachers by departament ID
+      parameters:
+      - description: Departament ID
+        in: path
+        name: departament_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.TeacherInfo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get teachers by departament ID
+      tags:
+      - Teachers
+  /teachers/email/{email}:
+    get:
+      consumes:
+      - application/json
+      description: Get a teacher by its email
+      parameters:
+      - description: Teacher Email
+        in: path
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.TeacherInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Get a teacher by email
+      tags:
+      - Teachers
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
+tags:
+- description: Endpoints for Admin role
+  name: Users
+- description: Endpoints for Headman role
+  name: Headman
+- description: Endpoints for Student role
+  name: Student
+- description: Endpoints for Teacher role
+  name: Teacher

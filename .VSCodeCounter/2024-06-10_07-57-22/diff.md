@@ -1,0 +1,24 @@
+# Diff Summary
+
+Date : 2024-06-10 07:57:22
+
+Directory c:\\Users\\vibeb\\Desktop\\Диплом\\разработка\\osau_ams_api
+
+Total : 3 files,  -20408 codes, -2 comments, -6 blanks, all -20416 lines
+
+[Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
+
+## Languages
+| language | files | code | comment | blank | total |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| YAML | 1 | -5,074 | 0 | -1 | -5,075 |
+| JSON | 1 | -7,658 | 0 | 0 | -7,658 |
+| Go | 1 | -7,676 | -2 | -5 | -7,683 |
+
+## Directories
+| path | files | code | comment | blank | total |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| . | 3 | -20,408 | -2 | -6 | -20,416 |
+| docs | 3 | -20,408 | -2 | -6 | -20,416 |
+
+[Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)

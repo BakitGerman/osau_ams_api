@@ -1,0 +1,14 @@
+"filename", "language", "Makefile", "SQL", "Markdown", "Go Module File", "Go Checksum File", "Docker", "YAML", "comment", "blank", "total"
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\Dockerfile", "Docker", 0, 0, 0, 0, 0, -9, 0, -1, -7, -17
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\Makefile", "Makefile", -11, 0, 0, 0, 0, 0, 0, 0, 0, -11
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\Readme.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docker-compose.test.yml", "YAML", 0, 0, 0, 0, 0, 0, -25, 0, -2, -27
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docker-compose.yml", "YAML", 0, 0, 0, 0, 0, 0, -22, 0, -2, -24
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\go.mod", "Go Module File", 0, 0, 0, -83, 0, 0, 0, 0, -3, -86
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\go.sum", "Go Checksum File", 0, 0, 0, 0, -269, 0, 0, 0, -1, -270
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\insert.sql", "SQL", 0, -104, 0, 0, 0, 0, 0, -10, -12, -126
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\insert_version_2.sql", "SQL", 0, -109, 0, 0, 0, 0, 0, -10, -13, -132
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\osau.sql", "SQL", 0, -257, 0, 0, 0, 0, 0, -115, -4, -376
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\osau_version_2.sql", "SQL", 0, -528, 0, 0, 0, 0, 0, -143, -66, -737
+"c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\selects.sql", "SQL", 0, -179, 0, 0, 0, 0, 0, 0, -4, -183
+"Total", "-", -11, -1177, 0, -83, -269, -9, -47, -279, -115, -1990

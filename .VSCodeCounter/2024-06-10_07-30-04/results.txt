@@ -1,0 +1,155 @@
+Date : 2024-06-10 07:30:04
+Directory : c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api
+Total : 105 files,  30989 codes, 2111 comments, 1991 blanks, all 35091 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Go               |         90 |     16,645 |      1,831 |      1,873 |     20,349 |
+| JSON             |          1 |      7,658 |          0 |          0 |      7,658 |
+| YAML             |          4 |      5,137 |          1 |          7 |      5,145 |
+| SQL              |          5 |      1,177 |        278 |         99 |      1,554 |
+| Go Checksum File |          1 |        269 |          0 |          1 |        270 |
+| Go Module File   |          1 |         83 |          0 |          3 |         86 |
+| Makefile         |          1 |         11 |          0 |          0 |         11 |
+| Docker           |          1 |          9 |          1 |          7 |         17 |
+| Markdown         |          1 |          0 |          0 |          1 |          1 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                        | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                           |        105 |     30,989 |      2,111 |      1,991 |     35,091 |
+| . (Files)                                                                                   |         12 |      1,596 |        279 |        115 |      1,990 |
+| cmd                                                                                         |          1 |          8 |         18 |         10 |         36 |
+| cmd\app                                                                                     |          1 |          8 |         18 |         10 |         36 |
+| configs                                                                                     |          1 |         16 |          1 |          2 |         19 |
+| docs                                                                                        |          3 |     20,408 |          2 |          6 |     20,416 |
+| domain                                                                                      |         18 |        294 |          0 |         70 |        364 |
+| internal                                                                                    |         67 |      8,568 |      1,792 |      1,755 |     12,115 |
+| internal\app                                                                                |          1 |         77 |          7 |         14 |         98 |
+| internal\config                                                                             |          1 |         62 |          3 |         15 |         80 |
+| internal\handler                                                                            |         24 |      3,460 |      1,618 |        761 |      5,839 |
+| internal\repository                                                                         |         19 |      3,850 |        163 |        701 |      4,714 |
+| internal\server                                                                             |          1 |         26 |          0 |          7 |         33 |
+| internal\service                                                                            |         21 |      1,093 |          1 |        257 |      1,351 |
+| pkg                                                                                         |          3 |         99 |         19 |         33 |        151 |
+| pkg\auth                                                                                    |          1 |         47 |          0 |         14 |         61 |
+| pkg\database                                                                                |          1 |         24 |         16 |         10 |         50 |
+| pkg\database\postgres                                                                       |          1 |         24 |         16 |         10 |         50 |
+| pkg\myhash                                                                                  |          1 |         28 |          3 |          9 |         40 |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                    | language         | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\Dockerfile                            | Docker           |          9 |          1 |          7 |         17 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\Makefile                              | Makefile         |         11 |          0 |          0 |         11 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\Readme.md                             | Markdown         |          0 |          0 |          1 |          1 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\cmd\app\main.go                       | Go               |          8 |         18 |         10 |         36 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\configs\config.yml                    | YAML             |         16 |          1 |          2 |         19 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docker-compose.test.yml               | YAML             |         25 |          0 |          2 |         27 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docker-compose.yml                    | YAML             |         22 |          0 |          2 |         24 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docs\docs.go                          | Go               |      7,676 |          2 |          5 |      7,683 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docs\swagger.json                     | JSON             |      7,658 |          0 |          0 |      7,658 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\docs\swagger.yaml                     | YAML             |      5,074 |          0 |          1 |      5,075 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\attendance.go                  | Go               |         44 |          0 |          9 |         53 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\classroom.go                   | Go               |          5 |          0 |          2 |          7 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\departament.go                 | Go               |         17 |          0 |          4 |         21 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\discipline.go                  | Go               |         13 |          0 |          4 |         17 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\disciplineType.go              | Go               |          5 |          0 |          2 |          7 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\educationLevel.go              | Go               |          5 |          0 |          2 |          7 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\educationType.go               | Go               |          5 |          0 |          2 |          7 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\faculty.go                     | Go               |         17 |          0 |          4 |         21 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\group.go                       | Go               |         12 |          0 |          4 |         16 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\headman.go                     | Go               |         14 |          0 |          4 |         18 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\profile.go                     | Go               |         14 |          0 |          4 |         18 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\report.go                      | Go               |         39 |          0 |          5 |         44 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\schedule.go                    | Go               |         26 |          0 |          5 |         31 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\specialty.go                   | Go               |         15 |          0 |          4 |         19 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\student.go                     | Go               |         13 |          0 |          3 |         16 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\teacher.go                     | Go               |         21 |          0 |          5 |         26 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\university.go                  | Go               |          9 |          0 |          2 |         11 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\domain\user.go                        | Go               |         20 |          0 |          5 |         25 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\go.mod                                | Go Module File   |         83 |          0 |          3 |         86 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\go.sum                                | Go Checksum File |        269 |          0 |          1 |        270 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\insert.sql                            | SQL              |        104 |         10 |         12 |        126 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\insert_version_2.sql                  | SQL              |        109 |         10 |         13 |        132 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\app\app.go                   | Go               |         77 |          7 |         14 |         98 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\config\config.go             | Go               |         62 |          3 |         15 |         80 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\attendance.go        | Go               |        306 |        118 |         65 |        489 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\classroom.go         | Go               |        114 |         64 |         29 |        207 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\departament.go       | Go               |        166 |         86 |         35 |        287 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\discipline.go        | Go               |        142 |         86 |         35 |        263 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\disciplineType.go    | Go               |        114 |         64 |         29 |        207 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\educationLevel.go    | Go               |        114 |         64 |         29 |        207 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\educationType.go     | Go               |        123 |         75 |         32 |        230 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\errors.go            | Go               |          2 |          0 |          2 |          4 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\faculty.go           | Go               |        170 |         98 |         35 |        303 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\group.go             | Go               |        130 |         86 |         35 |        251 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\handler.go           | Go               |        220 |          5 |         36 |        261 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\headman.go           | Go               |        133 |         78 |         32 |        243 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\middleware.go        | Go               |         64 |          0 |         11 |         75 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\profile.go           | Go               |        157 |         97 |         38 |        292 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\regexes.go           | Go               |         20 |          0 |          4 |         24 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\reponse.go           | Go               |         21 |          2 |          8 |         31 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\report.go            | Go               |         44 |          0 |         11 |         55 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\schedule.go          | Go               |        419 |        212 |         87 |        718 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\specialty.go         | Go               |        142 |         86 |         35 |        263 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\student.go           | Go               |        141 |         75 |         32 |        248 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\teacher.go           | Go               |        160 |         86 |         35 |        281 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\university.go        | Go               |        151 |         82 |         32 |        265 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\users.go             | Go               |        352 |        154 |         55 |        561 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\handler\validators.go        | Go               |         55 |          0 |         19 |         74 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\attendance.go     | Go               |        223 |         16 |         39 |        278 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\classroom.go      | Go               |         87 |         20 |         29 |        136 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\departament.go    | Go               |        195 |          0 |         37 |        232 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\discipline.go     | Go               |        179 |          4 |         37 |        220 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\disciplinetype.go | Go               |        103 |          4 |         29 |        136 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\educationlevel.go | Go               |        103 |          4 |         29 |        136 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\educationtype.go  | Go               |        107 |          0 |         29 |        136 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\faculty.go        | Go               |        195 |          0 |         37 |        232 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\group.go          | Go               |        175 |          8 |         37 |        220 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\headman.go        | Go               |        147 |          4 |         29 |        180 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\profile.go        | Go               |        234 |         12 |         45 |        291 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\report.go         | Go               |        150 |          0 |          8 |        158 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\repository.go     | Go               |        228 |          0 |         23 |        251 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\schedule.go       | Go               |        576 |          1 |         99 |        676 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\specialty.go      | Go               |        179 |         24 |         37 |        240 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\student.go        | Go               |        140 |         24 |         37 |        201 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\teacher.go        | Go               |        175 |         16 |         37 |        228 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\university.go     | Go               |         84 |         16 |         28 |        128 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\repository\users.go          | Go               |        570 |         10 |         55 |        635 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\server\server.go             | Go               |         26 |          0 |          7 |         33 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\attendance.go        | Go               |         62 |          0 |         13 |         75 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\classroom.go         | Go               |         37 |          0 |         11 |         48 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\departament.go       | Go               |         58 |          0 |         13 |         71 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\discipline.go        | Go               |         46 |          0 |         13 |         59 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\disciplinetype.go    | Go               |         37 |          0 |         11 |         48 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\educationlevel.go    | Go               |         37 |          0 |         11 |         48 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\educationtype.go     | Go               |         40 |          0 |         12 |         52 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\errors.go            | Go               |         10 |          0 |          3 |         13 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\faculty.go           | Go               |         58 |          0 |         13 |         71 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\group.go             | Go               |         43 |          0 |         13 |         56 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\headman.go           | Go               |         43 |          0 |         12 |         55 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\profile.go           | Go               |         52 |          0 |         14 |         66 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\report.go            | Go               |         16 |          0 |          6 |         22 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\roles.go             | Go               |          5 |          0 |          2 |          7 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\schedule.go          | Go               |        103 |          0 |         23 |        126 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\service.go           | Go               |         76 |          1 |          9 |         86 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\specialty.go         | Go               |         49 |          0 |         13 |         62 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\student.go           | Go               |         52 |          0 |         13 |         65 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\teacher.go           | Go               |         55 |          0 |         13 |         68 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\university.go        | Go               |         52 |          0 |         12 |         64 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\internal\service\users.go             | Go               |        162 |          0 |         27 |        189 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\osau.sql                              | SQL              |        257 |        115 |          4 |        376 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\osau_version_2.sql                    | SQL              |        528 |        143 |         66 |        737 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\pkg\auth\jwtManager.go                | Go               |         47 |          0 |         14 |         61 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\pkg\database\postgres\postgres.go     | Go               |         24 |         16 |         10 |         50 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\pkg\myhash\password.go                | Go               |         28 |          3 |          9 |         40 |
+| c:\Users\vibeb\Desktop\Диплом\разработка\osau_ams_api\selects.sql                           | SQL              |        179 |          0 |          4 |        183 |
+| Total                                                                                       |                  |     30,989 |      2,111 |      1,991 |     35,091 |
++---------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
